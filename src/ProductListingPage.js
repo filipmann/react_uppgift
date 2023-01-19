@@ -28,8 +28,6 @@ export default function ProductListingPage() {
     (product.campaign ? Math.round(product.price * (1 - (product.campaign.discountPercent / 100))) >= 0 : true)
   );
 
-  console.log(filteredProducts);
-
   return (
     <div>
       <div className="search-bar-container">
@@ -46,19 +44,13 @@ export default function ProductListingPage() {
       <div className='product-list'>
         {filteredProducts.map(product => (
           <div className="product-card" key={product.id}>
-          {product.campaign && 
-             <div className="campaign-tag">Rea!</div>
-          }
+            {product.campaign && 
+          <div className="campaign-tag">Rea!</div>
+            }
           <div onClick={() => navigate(`/product/${product.id}`)}>
              <ProductCard product={product} campaign={product.campaign} />
           </div>
        </div>
-       
-/*           <div className="product-card" key={product.id}>
-            <div onClick={() => navigate(`/product/${product.id}`)}>
-            <ProductCard product={product} campaign={product.campaign} />
-            </div>
-          </div> */
         ))}
       </div>
     </div>
