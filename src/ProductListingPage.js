@@ -45,7 +45,7 @@ export default function ProductListingPage() {
         {filteredProducts.map(product => (
           <div className="product-card" key={product.id}>
             {product.campaign &&
-              <div className="campaign-tag">Rea!</div>
+              <div className="campaign-tag">{ product.campaign.name }</div>
             }
             <div onClick={() => navigate(`/product/${product.id}`)}>
               <ProductCard product={product} campaign={product.campaign} />
